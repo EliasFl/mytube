@@ -11,7 +11,8 @@ import API_KEY from '../api/youtubeAPIKey';
 class App extends Component {
   state = {
     videos: [],
-  }
+    selectedVideo: null
+  };
 
   componentDidMount() {
     this.searchVideo('kobe bryant');
@@ -24,13 +25,24 @@ class App extends Component {
     }, (videos) => {
       this.setState({
         videos: videos,
+        selectedVideo: videos[0]
       })
     });
-  }
+  };
 
   handleSearch = (term) => {
     this.searchVideo(term);
-  }
+  };
+
+  handleVideoSelect = (video) => {
+    this.selectVideo(video);
+  };
+
+  selectVideo = (video) => {
+    this.setState({
+      selectedVideo: video,
+    });
+  };
 
   render() {
     return (
@@ -39,10 +51,11 @@ class App extends Component {
           onSearchTerm={this.handleSearch}
         />
           <VideoDetail
-            video={this.state.videos[0]}
+            video={this.state.selectedVideo}
           />
           <VideoList
             videos={this.state.videos}
+            onSelectVideo={this.handleVideoSelect}
           />
       </div>
     );
