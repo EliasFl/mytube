@@ -13,6 +13,7 @@ class SearchBar extends Component {
     this.setState({
       term: newTerm,
     });
+    this.props.onSearchTerm(this.state.term);
   }
 
   render() {

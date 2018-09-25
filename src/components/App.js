@@ -26,10 +26,16 @@ class App extends Component {
     });
   }
 
+  handleSearch = (term) => {
+    this.searchVideo(term);
+  }
+
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          onSearchTerm={this.handleSearch}
+        />
         <VideoList
           videos={this.state.videos}
         />
