@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
 import '../styles/index.css';
@@ -45,10 +46,12 @@ class App extends Component {
   };
 
   render() {
+    const handleSearch = _.debounce(this.handleSearch, 500);
+
     return (
       <div className="app">
         <SearchBar
-          onSearchTerm={this.handleSearch}
+          onSearchTerm={handleSearch}
         />
           <VideoDetail
             video={this.state.selectedVideo}
