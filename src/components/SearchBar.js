@@ -22,6 +22,7 @@ class SearchBar extends Component {
         <input
           value={this.state.term}
           onChange={this.handleChange}
+          placeholder="Search"
         />
       </div>
     );
