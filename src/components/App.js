@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.searchVideo('kobe bryant');
+    this.searchVideo('');
   }
 
   searchVideo = (term) => {
