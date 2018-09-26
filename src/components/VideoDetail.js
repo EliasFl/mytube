@@ -3,8 +3,8 @@ import React from 'react';
 const VideoDetail = ({video}) => {
   if (!video) {
     return (
-      <div>
-        ...Loading
+      <div className="col-md-8 loader-container">
+        <div className="loader"></div>
       </div>
     );
   }
