@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const VideoItem = ({video, onSelectVideo}) => {
   const imageUrl = video.snippet.thumbnails.default.url;
@@ -16,6 +17,11 @@ const VideoItem = ({video, onSelectVideo}) => {
       </div>
     </li>
   );
+};
+
+VideoItem.propTypes = {
+  video: PropTypes.object,
+  onSelectVideo: PropTypes.func,
 };
 
 export default VideoItem;
