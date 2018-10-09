@@ -2,13 +2,13 @@ import React from 'react';
 import VideoItem from './VideoItem';
 import PropTypes from 'prop-types'; 
 
-const VideoList = (props) => {
-  const VideoItems = props.videos.map(video => {
+const VideoList = ({videos, onSelectVideo}) => {
+  const VideoItems = videos.map(video => {
     return (
       <VideoItem
         video={video}
         key={video.etag}
-        onSelectVideo={props.onSelectVideo}
+        onSelectVideo={onSelectVideo}
       />
     ); 
   });
