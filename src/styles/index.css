@@ -5,6 +5,7 @@
 
 .search-bar input {
   width: 75%;
+  padding: 5px;
 }
 
 .video-item img {
@@ -29,6 +30,7 @@
 
 .video-title {
   margin-left: 10px;
+  font-weight: bold;
 }
 
 .loader-container {
