@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Spinner from './Spinner';
+
 const VideoDetail = ({video}) => {
   if (!video) {
     return (
-      <div className="col-md-8 loader-container">
-        <div className="loader"></div>
-      </div>
+      <Spinner />
     );
   }
 
