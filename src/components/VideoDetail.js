@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Spinner from './Spinner';
-
 const VideoDetail = ({video}) => {
-  if (!video) {
-    return (
-      <Spinner />
-    );
-  }
 
   const videoId = video.id.videoId;
   const videoUrl = `https://www.youtube.com/embed/${videoId}`;

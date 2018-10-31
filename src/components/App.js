@@ -1,13 +1,15 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import YTSearch from 'youtube-api-search';
 import '../styles/index.css';
 
+import API_KEY from '../api/youtubeAPIKey';
+
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+import Spinner from './Spinner';
 
-import API_KEY from '../api/youtubeAPIKey';
+const VideoDetail = lazy(() => import('./VideoDetail'));
 
 class App extends Component {
   state = {
@@ -53,13 +55,15 @@ class App extends Component {
         <SearchBar
           onSearchTerm={handleSearch}
         />
+        <Suspense fallback={<Spinner />}>
           <VideoDetail
             video={this.state.selectedVideo}
           />
-          <VideoList
-            videos={this.state.videos}
-            onSelectVideo={this.handleVideoSelect}
-          />
+        </Suspense>
+        <VideoList
+          videos={this.state.videos}
+          onSelectVideo={this.handleVideoSelect}
+        />
       </div>
     );
   }
