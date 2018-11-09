@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const VideoDetail = ({video}) => {
-  if (!video) {
-    return (
-      <div className="col-md-8 loader-container">
-        <div className="loader"></div>
-      </div>
-    );
-  }
 
   const videoId = video.id.videoId;
   const videoUrl = `https://www.youtube.com/embed/${videoId}`;
